@@ -1,0 +1,85 @@
+<html>
+
+<script>
+
+function computerPlay (){
+    hand=new Array (3);
+    hand[0] ="ROCK";
+    hand[1] ="PAPPER";
+    hand[2] = "SCISSORS"
+    play = hand[Math.floor(Math.random()*hand.length)];
+    return play;
+
+}
+
+function playerSelection(){
+    var playerplay = prompt("Choose Rock, Paper or Scissors", "");
+    return playerplay.toUpperCase();
+}
+
+function roundplay(human,computer){
+    //human=human.toUpperCase();
+    if(human==computer){
+        result="DRAW";
+    }
+    else if(human=="ROCK"){
+        if(computer=="PAPPER"){
+            result="Lost";
+        }
+        else{ 
+            result = "won"
+        }
+    }
+    else if(human=="PAPPER"){
+        if(computer=="SCISSORS"){
+            result ="Lost";
+        }
+        else{result="won";}
+    }
+    else if(human=="SCISSORS"){
+        if(computer=="ROCK"){
+            result="Lost"
+        }
+        else{
+            result="won"
+        }
+    }
+    console.log(human);
+    console.log(computer);
+    return result;
+}
+
+function count(){
+    i=0;
+    me = 0;
+    pc=0;
+    while(i<5){
+        roundplay(playerSelection(),computerPlay());
+            if(result=="won"){
+                me++;
+            }
+            else if (result=="Lost"){
+                pc++;
+            }
+            else{i--;}
+            i++;
+        }
+        if (me>pc){
+        return "CONGRATULATIONS! YOU HAVE WON";
+    }
+    else{
+        return "oh NO. YOU HAVE LOST";
+    }
+    }
+   
+
+
+
+
+console.log(count());
+
+</script>
+
+
+
+</html>
